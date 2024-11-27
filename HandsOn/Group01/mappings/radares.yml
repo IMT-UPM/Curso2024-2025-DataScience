@@ -1,0 +1,30 @@
+prefixes:
+  rr: <http://www.w3.org/ns/r2rml#>
+  ex: <http://example.com/ns#>
+  rml: <http://semweb.mmlab.be/ns/rml#>
+  geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+  ql: <http://semweb.mmlab.be/ns/ql#>
+
+mappings:
+  RadaresMapping:
+    sources:
+      - ["csv/RADARES-FIJOS-vDTT-updated.csv~csv"]
+    s: "http://dominiowebsemantica.com/Radar/$(ID)"
+    po:
+      - [ ex:id, $(ID) ]
+      - [ ex:numRadar, $(numRadar) ]
+      - [ ex:ubicacion, $(ubicacion) ]
+      - [ ex:carretera, $(carretera) ]
+      - [ ex:ubicacionCarretera, $(ubicacionCarretera) ]
+      - [ ex:pk, $(pk) ]
+      - [ ex:sentido, $(sentido) ]
+      - [ ex:tipo, $(tipo) ]
+      - [ ex:carril, $(carril) ]
+      - [ ex:longitudInicioTramo, $(Longitud inicio tramo) ]
+      - [ ex:latitudInicioTramo, $(Latitud inicio tramo) ]
+      - [ ex:xWGS84, $(X (WGS84)) ]
+      - [ ex:yWGS84, $(Y (WGS84)) ]
+      - [ geo:lat, $(Latitud), xsd:decimal ]
+      - [ geo:long, $(Longitud), xsd:decimal ]
+      - [ ex:velocidadLimite, $(velocidadLimite), xsd:integer ]
+      - [ ex:responsable, $(responsable) ]

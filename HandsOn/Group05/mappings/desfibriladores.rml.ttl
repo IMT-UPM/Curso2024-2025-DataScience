@@ -1,0 +1,118 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/rml#ql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsc: <http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/resources#> .
+@prefix is: <http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<#DesfibriladoresMapping>
+    rml:logicalSource [
+        rml:source "desfibriladores-updated.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#desfibrilador_{codigo_dea}";
+        rr:class rsc:Desfibrilador
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:idDesfibrilador;
+        rr:objectMap [ rml:reference "codigo_dea" ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:albergadoEn;
+        rr:objectMap [
+            rr:template "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#establecimiento_{codigo_dea}"
+        ]
+    ].
+
+<#EstablecimientoMapping>
+    rml:logicalSource [
+        rml:source "desfibriladores-updated.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#establecimiento_{codigo_dea}";
+        rr:class rsc:Establecimiento
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:tipoEstablecimiento;
+        rr:objectMap [ rml:reference "tipo_establecimiento" ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:tipoTitularidad;
+        rr:objectMap [ rml:reference "tipo_titularidad" ]
+    ].
+
+<#DireccionesMapping>
+    rml:logicalSource [
+        rml:source "desfibriladores-updated.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#{direccion_completa}";
+        rr:class rsc:Direccion
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rml:reference "direccion_completa" ;
+                    rr:datatype xsd:string]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:tipoDireccion;
+        rr:objectMap [ rml:reference "direccion_via_codigo" ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:nombreDireccion;
+        rr:objectMap [ rml:reference "direccion_via_nombre" ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:numeroDireccion;
+        rr:objectMap [
+            rml:reference "direccion_portal_numero";
+            rr:datatype xsd:string
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:codigoPostal;
+        rr:objectMap [
+            rml:reference "direccion_codigo_postal";
+            rr:datatype xsd:integer
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:coordenadaX;
+        rr:objectMap [
+            rml:reference "direccion_coordenada_x";
+            rr:datatype xsd:string
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:coordenadaY;
+        rr:objectMap [
+            rml:reference "direccion_coordenada_y";
+            rr:datatype xsd:string
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rsc:perteneceA;
+        rr:objectMap [
+            rr:template "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#{municipio_nombre}"
+        ]
+    ].
+
+<#MunicipiosMapping>
+    rml:logicalSource [
+        rml:source "desfibriladores-updated.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#{municipio_nombre}";
+        rr:class rsc:Municipio
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rml:reference "municipio_nombre" ]
+    ].
+
+

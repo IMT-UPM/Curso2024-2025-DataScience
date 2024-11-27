@@ -1,0 +1,32 @@
+prefixes:
+  rr: <http://www.w3.org/ns/r2rml#>
+  ex: <http://example.com/ns#>
+  rml: <http://semweb.mmlab.be/ns/rml#>
+  geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+  ql: <http://semweb.mmlab.be/ns/ql#>
+
+mappings:
+  AccidentalidadMapping:
+    sources:
+      - ["csv/2024-Accidentalidad-updated.csv~csv"]
+    s: "http://dominiowebsemantica.com/Accidente/$(ID)"
+    po:
+      - [ ex:id, $(ID) ]
+      - [ ex:fechaHora, $(fecha_hora) ]
+      - [ ex:localizacion, $(localizacion) ]
+      - [ ex:numero, $(numero) ]
+      - [ ex:codDistrito, $(codDistrito) ]
+      - [ ex:distrito, $(distrito) ]
+      - [ ex:tipoAccidente, $(tipoAccidente) ]
+      - [ ex:estadoMeteorologico, $(estadoMeteorologico) ]
+      - [ ex:tipoVehiculo, $(tipoVehiculo) ]
+      - [ ex:tipoPersona, $(tipoPersona) ]
+      - [ ex:edadMin, $(edad_min) ]
+      - [ ex:edadMax, $(edad_max) ]
+      - [ ex:sexo, $(sexo) ]
+      - [ ex:codLesividad, $(cod_lesividad) ]
+      - [ ex:lesividad, $(lesividad) ]
+      - [ geo:lat, $(coordenadaY), xsd:decimal ]
+      - [ geo:long, $(coordenadaX), xsd:decimal ]
+      - [ ex:positivaAlcohol, $(positivaAlcohol) ]
+      - [ ex:positivaDroga, $(positivaDroga) ]

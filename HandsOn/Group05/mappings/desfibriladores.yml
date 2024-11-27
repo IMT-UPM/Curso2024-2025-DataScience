@@ -1,0 +1,80 @@
+mappings:
+  DesfibriladoresMapping:
+    logicalSource:
+      source: "desfibriladores-updated.csv"
+      referenceFormulation: "ql:CSV"
+    subjectMap:
+      template: "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#desfibrilador_{codigo_dea}"
+      class: "rsc:Desfibrilador"
+    predicateObjectMap:
+      - predicate: "rsc:idDesfibrilador"
+        objectMap:
+          reference: "codigo_dea"
+      - predicate: "rsc:albergadoEn"
+        objectMap:
+          template: "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#establecimiento_{codigo_dea}"
+
+  EstablecimientoMapping:
+    logicalSource:
+      source: "desfibriladores-updated.csv"
+      referenceFormulation: "ql:CSV"
+    subjectMap:
+      template: "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#establecimiento_{codigo_dea}"
+      class: "rsc:Establecimiento"
+    predicateObjectMap:
+      - predicate: "rsc:tipoEstablecimiento"
+        objectMap:
+          reference: "tipo_establecimiento"
+      - predicate: "rsc:tipoTitularidad"
+        objectMap:
+          reference: "tipo_titularidad"
+
+  DireccionesMapping:
+    logicalSource:
+      source: "desfibriladores-updated.csv"
+      referenceFormulation: "ql:CSV"
+    subjectMap:
+      template: "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#{direccion_completa}"
+      class: "rsc:Direccion"
+    predicateObjectMap:
+      - predicate: "rdfs:label"
+        objectMap:
+          reference: "direccion_completa"
+          datatype: "xsd:string"
+      - predicate: "rsc:tipoDireccion"
+        objectMap:
+          reference: "direccion_via_codigo"
+      - predicate: "rsc:nombreDireccion"
+        objectMap:
+          reference: "direccion_via_nombre"
+      - predicate: "rsc:numeroDireccion"
+        objectMap:
+          reference: "direccion_portal_numero"
+          datatype: "xsd:string"
+      - predicate: "rsc:codigoPostal"
+        objectMap:
+          reference: "direccion_codigo_postal"
+          datatype: "xsd:integer"
+      - predicate: "rsc:coordenadaX"
+        objectMap:
+          reference: "direccion_coordenada_x"
+          datatype: "xsd:string"
+      - predicate: "rsc:coordenadaY"
+        objectMap:
+          reference: "direccion_coordenada_y"
+          datatype: "xsd:string"
+      - predicate: "rsc:perteneceA"
+        objectMap:
+          template: "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#{municipio_nombre}"
+
+  MunicipiosMapping:
+    logicalSource:
+      source: "desfibriladores-updated.csv"
+      referenceFormulation: "ql:CSV"
+    subjectMap:
+      template: "http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/instances#{municipio_nombre}"
+      class: "rsc:Municipio"
+    predicateObjectMap:
+      - predicate: "rdfs:label"
+        objectMap:
+          reference: "municipio_nombre"

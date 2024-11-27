@@ -1,6 +1,5 @@
 @prefix : <http://www.knowledgegraphs/ontology/> .
-@prefix cls: <http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/classes#> .
-@prefix pr: <http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/properties#> .
+@prefix rsc: <http://www.knowledgegraphs.com/ontology/centrosydesfibriladores/resources#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -11,204 +10,204 @@
 			mod:createdWith <https://chowlk.linkeddata.es/> .
 
 
-pr:albergadoEn a owl:ObjectProperty ;
-		rdfs:domain cls:Desfibrilador ;
-		rdfs:range cls:Establecimiento ;
+rsc:albergadoEn a owl:Objectrscoperty ;
+		rdfs:domain rsc:Desfibrilador ;
+		rdfs:range rsc:Establecimiento ;
 		rdfs:label "albergado en" .
 
 
-pr:localizadoEn rdf:type owl:ObjectProperty ;
-		rdfs:domain cls:CentrodeSalud ;
-		rdfs:range cls:Direccion ;
+rsc:localizadoEn rdf:type owl:Objectrscoperty ;
+		rdfs:domain rsc:CentrodeSalud ;
+		rdfs:range rsc:Direccion ;
 		rdfs:label "localizado en" .
 
 
-pr:especializadoEn rdf:type owl:ObjectProperty ;
-		rdfs:domain cls:CentrodeSalud ;
-		rdfs:range cls:Especialidad ;
+rsc:especializadoEn rdf:type owl:Objectrscoperty ;
+		rdfs:domain rsc:CentrodeSalud ;
+		rdfs:range rsc:Especialidad ;
 		rdfs:label "especializado en" .
 
 
-pr:perteneceA rdf:type owl:ObjectProperty ;
-		rdfs:domain cls:Direccion ;
-		rdfs:range cls:Municipio ;
+rsc:perteneceA rdf:type owl:Objectrscoperty ;
+		rdfs:domain rsc:Direccion ;
+		rdfs:range rsc:Municipio ;
 		rdfs:label "pertenece a" .
 
 
-pr:tipoDireccion rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Direccion ;
+rsc:tipoDireccion rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Direccion ;
 		rdfs:range xsd:string ;
 		rdfs:label "tipo direccion" .
 
 
-pr:nombreDireccion rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Direccion ;
+rsc:nombreDireccion rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Direccion ;
 		rdfs:range xsd:string ;
 		rdfs:label "nombre direccion" .
 
 
-pr:numeroDireccion rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Direccion ;
+rsc:numeroDireccion rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Direccion ;
 		rdfs:range xsd:integer ;
 		rdfs:label "numero direccion" .
 
 
-pr:codigoPostal rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Direccion ;
+rsc:codigoPostal rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Direccion ;
 		rdfs:range xsd:integer ;
 		rdfs:label "codigo postal" .
 
 
-pr:coordenadaX rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Direccion ;
+rsc:coordenadaX rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Direccion ;
 		rdfs:range xsd:float ;
 		rdfs:label "coordenada x" .
 
 
-pr:coordenadaY rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Direccion ;
+rsc:coordenadaY rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Direccion ;
 		rdfs:range xsd:float ;
 		rdfs:label "coordenada y" .
 
 
-pr:tipoEstablecimiento rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Establecimiento ;
+rsc:tipoEstablecimiento rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Establecimiento ;
 		rdfs:range xsd:string ;
 		rdfs:label "tipo establecimiento" .
 
-pr:tipoTitularidad rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Establecimiento ;
+rsc:tipoTitularidad rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Establecimiento ;
 		rdfs:range xsd:string ;
 		rdfs:label "tipo titularidad" .
 
 
-pr:idCentro rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:CentrodeSalud ;
+rsc:idCentro rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:CentrodeSalud ;
 		rdfs:range xsd:string ;
 		rdfs:label "id centro" .
 
 
-pr:tipoCentro rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:CentrodeSalud ;
+rsc:tipoCentro rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:CentrodeSalud ;
 		rdfs:range xsd:string ;
 		rdfs:label "tipo centro" .
 
 
-pr:idDesfibrilador rdf:type owl:DatatypeProperty ;
-		rdfs:domain cls:Desfibrilador ;
+rsc:idDesfibrilador rdf:type owl:DatatypeProperty ;
+		rdfs:domain rsc:Desfibrilador ;
 		rdfs:range xsd:string ;
 		rdfs:label "id desfibrilador" .
 
 
-cls:CentrodeSalud rdf:type owl:Class ;
+rsc:CentrodeSalud rdf:type owl:Class ;
 	rdfs:label "Centrode Salud" .
 
 
-cls:Especialidad rdf:type owl:Class ;
+rsc:Especialidad rdf:type owl:Class ;
 	rdfs:label "Especialidad" .
 
 
-cls:Alergologia a owl:Class ;
-	rdfs:subClassOf cls:Especialidad ;
+rsc:Alergologia a owl:Class ;
+	rdfs:subClassOf rsc:Especialidad ;
 	rdfs:label "Alergología" .
 
 
-cls:Cardiologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Cardiologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Cardiología" .
 
-cls:CirugiaMayorAmbulatoria a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:CirugiaMayorAmbulatoria a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Cirugía mayor ambulatoria" .
 
-cls:CirugiaMenorAmbulatoria a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:CirugiaMenorAmbulatoria a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Cirugía menor ambulatoria" .
 
-cls:Dermatologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Dermatologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Dermatología" .
 
-cls:Endocrinologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Endocrinologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Endocrinología" .
 
-cls:Enfermeria a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Enfermeria a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Enfermería" .
 
-cls:Farmacia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Farmacia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Farmacia" .
 
-cls:Fisioterapia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Fisioterapia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Fisioterapia" .
 
-cls:MedicinaGeneral a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:MedicinaGeneral a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Medicina general/de familia" .
 
-cls:Neumologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Neumologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Neumología" .
 
-cls:Neurologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Neurologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Neurología" .
 
-cls:NutricionYDietetica a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:NutricionYDietetica a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Nutrición y Dietética" .
 
-cls:Oncologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Oncologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Oncología" .
 
-cls:Otorrinolaringologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Otorrinolaringologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Otorrinolaringología" .
 
-cls:Pediatria a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Pediatria a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Pediatría" .
 
-cls:PsicologiaClinica a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:PsicologiaClinica a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Psicología clínica" .
 
-cls:Psiquiatria a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Psiquiatria a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Psiquiatría" .
 
-cls:Rehabilitacion a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Rehabilitacion a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Rehabilitación" .
 
-cls:Reumatologia a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Reumatologia a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Reumatología" .
 
-cls:Urgencias a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Urgencias a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Urgencias" .
 
-cls:Vacunacion a owl:Class ;
-    rdfs:subClassOf cls:Especialidad ;
+rsc:Vacunacion a owl:Class ;
+    rdfs:subClassOf rsc:Especialidad ;
     rdfs:label "Vacunación" .
 
 
-cls:Municipio rdf:type owl:Class ;
+rsc:Municipio rdf:type owl:Class ;
 	rdfs:label "Municipio" .
 
 
-cls:Direccion rdf:type owl:Class ;
+rsc:Direccion rdf:type owl:Class ;
 	rdfs:label "Direccion" .
 
 
-cls:Establecimiento rdf:type owl:Class ;
+rsc:Establecimiento rdf:type owl:Class ;
 	rdfs:label "Establecimiento" .
 
 
-cls:Desfibrilador rdf:type owl:Class ;
+rsc:Desfibrilador rdf:type owl:Class ;
 	rdfs:label "Desfibrilador" .

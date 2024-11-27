@@ -40,7 +40,7 @@
 
 ###  http://accidentestrafico.org/traffic/ontology/tienelesividad#
 :tienelesividad rdf:type owl:ObjectProperty ;
-                rdfs:domain :Accidente ;
+                rdfs:domain :Persona;
                 rdfs:range :Lesividad .
 
 
@@ -53,8 +53,8 @@
 #    Data properties
 #################################################################
 
-###  http://accidentestrafico.org/traffic/ontology/numeroExpediente#
-:numeroExpediente rdf:type owl:DatatypeProperty ;
+###  http://accidentestrafico.org/traffic/ontology/NumeroExpediente#
+:NumeroExpediente rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Accidente ;
                   rdfs:range xsd:string .
 
@@ -71,20 +71,20 @@
                rdfs:range xsd:string .
 
 
-###  http://accidentestrafico.org/traffic/ontology/alcohol#
-:alcohol rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Accidente ;
+###  http://accidentestrafico.org/traffic/ontology/PruebaAlcohol#
+:PruebaAlcohol rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Persona ;
          rdfs:range xsd:string .
 
 
-###  http://accidentestrafico.org/traffic/ontology/droga#
-:droga rdf:type owl:DatatypeProperty ;
-       rdfs:domain :Accidente ;
+###  http://accidentestrafico.org/traffic/ontology/PruebaDrogas#
+:PruebaDrogas rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Persona ;
        rdfs:range xsd:string .
 
 
-###  http://accidentestrafico.org/traffic/ontology/cod_lesividad#
-:cod_lesividad rdf:type owl:DatatypeProperty ;
+###  http://accidentestrafico.org/traffic/ontology/CodLesividad#
+:CodLesividad rdf:type owl:DatatypeProperty ;
             rdfs:domain :Lesividad ;
             rdfs:range xsd:integer .
 
@@ -95,8 +95,8 @@
               rdfs:range xsd:string .
 
 
-###  http://accidentestrafico.org/traffic/ontology/rango_edad#
-:rango_edad rdf:type owl:DatatypeProperty ;
+###  http://accidentestrafico.org/traffic/ontology/Rangoedad#
+:Rangoedad rdf:type owl:DatatypeProperty ;
             rdfs:domain :Persona ;
             rdfs:range xsd:string .
 
@@ -106,9 +106,15 @@
       rdfs:domain :Persona ;
       rdfs:range xsd:string .
 
+###  http://accidentestrafico.org/traffic/ontology/TipoDePersona#
+:TipoDePersona rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Persona ;
+               rdfs:range xsd:string .
 
-###  http://accidentestrafico.org/traffic/ontology/tipoVehiculo#
-:tipoVehiculo rdf:type owl:DatatypeProperty ;
+
+
+###  http://accidentestrafico.org/traffic/ontology/tipovehiculo#
+:tipovehiculo rdf:type owl:DatatypeProperty ;
               rdfs:domain :Vehiculo ;
               rdfs:range xsd:string .
 
@@ -119,11 +125,6 @@
               rdfs:range xsd:string .
 
 
-###  http://accidentestrafico.org/traffic/ontology/numCalle#
-:numCalle rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Direccion ;
-              rdfs:range xsd:integer .
-
 
 ###  http://accidentestrafico.org/traffic/ontology/distrito#
 :distrito rdf:type owl:DatatypeProperty ;
@@ -131,21 +132,16 @@
               rdfs:range xsd:string .
 
 
-###  http://accidentestrafico.org/traffic/ontology/codDistrito#
-:codDistrito rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Direccion ;
-              rdfs:range xsd:string .
-
 
 ###  http://accidentestrafico.org/traffic/ontology/coordenadax#
 :coordenadax rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Coordenadas ;
+              rdfs:domain :Direccion ;
               rdfs:range xsd:integer .
 
 
 ###  http://accidentestrafico.org/traffic/ontology/coordenaday#
 :coordenaday rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Coordenadas ;
+              rdfs:domain :Direccion ;
               rdfs:range xsd:integer .
 
 
@@ -179,39 +175,3 @@
 
 ###  http://accidentestrafico.org/traffic/ontology/Coordenadas#
 :Coordenadas rdf:type owl:Class .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-<http://accidentestrafico.org/traffic/resource/Accidente/2024S111201> rdf:type owl:NamedIndividual , :Accidente ;
-                                                              :numeroExpediente "2024S111201" ;
-                                                              :fechaHora "2024-11-12T15:00:00"^^xsd:dateTime ;
-                                                              :tipoAccidente "Colisión lateral" ;
-                                                              :alcohol "N" ;
-                                                              :droga "S" ;
-                                                              :ocurreendireccion <http://accidentestrafico.org/traffic/ontology/Direccion/direccion1> ;
-                                                              :tieneestadometeorologico <http://accidentestrafico.org/traffic/ontology/Estadometeorologico/lluvia> ;
-                                                              :tienelesividad <http://accidentestrafico.org/traffic/ontology/Lesividad/ingreso1> ;
-                                                              :involucravehiculo <http://accidentestrafico.org/traffic/ontology/Vehiculo/vehiculo123> ;
-                                                              :participapersona <http://accidentestrafico.org/traffic/ontology/Persona/persona123> .
-
-
-<http://accidentestrafico.org/traffic/resource/Persona/persona123> rdf:type owl:NamedIndividual , :Persona ;
-                                                          <http://accidentestrafico.org/traffic/ontology/rango_edad> "De 25 a 29 años" ;
-                                                          <http://accidentestrafico.org/traffic/ontology/sexo> "Hombre" .
-
-
-<http://accidentestrafico.org/traffic/resource/Lesividad/ingreso1> rdf:type owl:NamedIndividual , :Lesividad ;
-                                                            <http://accidentestrafico.org/traffic/ontology/cod_lesividad> 2 ;
-                                                            <http://accidentestrafico.org/traffic/ontology/tipoLesividad> "Ingreso" .
-
-
-<http://accidentestrafico.org/traffic/resource/Direccion/direccion1> rdf:type owl:NamedIndividual , :Direccion ;
-                                                              <http://accidentestrafico.org/traffic/ontology/numCalle> 12 ;
-                                                              <http://accidentestrafico.org/traffic/ontology/localizacion> "CALL. TESORO / CALL. MINAS" ;
-                                                              <http://accidentestrafico.org/traffic/ontology/distrito> "CENTRO" ;
-                                                              <http://accidentestrafico.org/traffic/ontology/codDistrito> "1" .
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

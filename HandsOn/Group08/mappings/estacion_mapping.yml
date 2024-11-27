@@ -1,0 +1,72 @@
+prefixes:
+  base: "http://websemantica/base#"
+  ns: "https://www.dominiowebsemant.com/ontology/CercaniasMalaga#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+
+mappings:
+  estacion_mapping:
+    sources:
+      - [estaciones_updated.csv~csv]
+    s: "http://websemantica/base#Estacion/$(CÓDIGO)~iri"
+    po:
+      - [a, ns:Estación]
+      - [ns:codigoEstacion, $(CÓDIGO)]
+      - [ns:latitud, $(LATITUD), xsd:decimal]
+      - [ns:longitud, $(LONGITUD), xsd:decimal]
+      - [ns:nombreEstacion, $(DESCRIPCION)]
+      - [ns:localizadoEn, "http://websemantica/base#Direccion/$(CÓDIGO)~iri"]
+      - p: ns:tieneNucleo
+        o: 
+          - mapping: nucleo_mapping
+            condition:
+              function: equal
+              parameters: 
+                 - [str1, $(CÓDIGO)]
+                 - [str2, $(CODIGO_ESTACION)]
+      
+  nucleo_mapping:
+    sources:
+      - [malaga_viajeros_por_franja_csv.csv~csv]
+    s: "http://websemantica/base#Nucleo/$(NUCLEO_CERCANIAS)~iri"
+    po:
+      - [a, ns:NucleoCercanias]
+      - [ns:nombreNucleo, $(NUCLEO_CERCANIAS)]
+
+  direccion_mapping:
+    sources:
+      - [estaciones_updated.csv~csv]
+    s: "http://websemantica/base#Direccion/$(CÓDIGO)~iri"
+    po:
+      - [a, ns:Direccion]
+      - [ns:nombreDireccion, $(DIRECCIÓN 1)]
+      - [ns:tieneCodigoPostal, "http://websemantica/base#CodigoPostal/$(C.P.)~iri"]
+
+  poblacion_mapping:
+    sources:
+      - [estaciones_updated.csv~csv]
+    s: "http://websemantica/base#Poblacion/$(POBLACION)~iri"
+    po:
+      - [a, ns:Poblacion]
+      - [ns:nombrePoblacion, $(POBLACION)]
+      - [ns:tieneDireccion, "http://websemantica/base#Direccion/$(CÓDIGO)~iri"]
+
+  tramo_mapping:
+    sources:
+      - [malaga_viajeros_por_franja_csv.csv~csv]
+    s: "http://websemantica/base#Tramo/$(TRAMO_ID)~iri"
+    po:
+      - [a, ns:Tramo]
+      - [ns:intervalo, $(TRAMO_HORARIO)]
+      - [ns:viajerosSubidos, $(VIAJEROS_SUBIDOS), xsd:integer]
+      - [ns:viajerosBajados, $(VIAJEROS_BAJADOS), xsd:integer]
+      - [ns:tieneEstacion, "http://websemantica/base#Estacion/$(CODIGO_ESTACION)~iri"]
+      
+  provincia_mapping:
+    sources:
+      - [estaciones_updated.csv~csv]
+    s: "http://websemantica/base#Provincia/$(POBLACION)~iri"
+    po:
+      - [a, ns:Provincia]
+      - [ns:nombreProvincia, $(PROVINCIA)]
+      - [ns:tienePoblacion, "http://websemantica/base#Poblacion/$(POBLACION)~iri"]
+

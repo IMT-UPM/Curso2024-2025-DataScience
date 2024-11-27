@@ -1,0 +1,49 @@
+#################################################################
+#    Intancias
+#################################################################
+
+# Instancia de Accidente
+ind:Accidente2024S111201 a :Accidente ;
+    :NumeroExpediente "2024S111201" ;
+    :Fecha "2024-11-12"^^xsd:date ;
+    :Hora "15:00:00"^^xsd:time ;
+    :TipoAccidente "Colisión lateral" ;
+    :PruebaAlcohol "NO" ;
+    :PruebaDrogas "YES" ;
+    :OcurreEn ind:Direccion1 ;
+    :TieneEstadoMeteorologico ind:EstadoLluvia ;
+    :ParticipaPersona ind:Persona123 ;
+    :InvolucraVehiculo ind:Vehiculo123 .
+
+# Instancia de Persona
+ind:Persona123 a :Persona ;
+    :RangoEdad "De 25 a 29 años" ;
+    :Sexo "Hombre" ;
+    :TipoDePersona "Conductor" ;
+    :PruebaAlcohol "NO" ;
+    :PruebaDrogas "YES" ;
+    :TieneLesividad ind:LesividadIngreso .
+
+# Instancia de Lesividad
+ind:LesividadIngreso a :Lesividad ;
+    :CodLesividad 2 .
+
+# Instancia de Dirección
+ind:Direccion1 a :Direccion ;
+    :Localizacion "CALL. TESORO / CALL. MINAS, 12" ;
+    :Distrito "CENTRO" ;
+    :TieneCoordenadas ind:CoordenadasDireccion1 .
+
+# Instancia de Coordenadas
+ind:CoordenadasDireccion1 a :Coordenadas ;
+    :Coordenadas 123456 ;
+    :CoordenadaY 654321 .
+
+# Instancia de Estado Meteorológico
+ind:EstadoLluvia a :EstadoMeteorologico ;
+    :Estado "Lluvia" .
+
+# Instancia de Vehículo
+ind:Vehiculo123 a :Vehiculo ;
+    :TipoVehiculo "Coche" .
+
